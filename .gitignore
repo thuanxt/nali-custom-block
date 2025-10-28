@@ -21,3 +21,19 @@ wp-content/uploads/
 .env
 .idea/
 .vscode/
+
+# Logs
+logs
+*.log
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Output of `npm pack`
+*.tgz
