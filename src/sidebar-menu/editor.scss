@@ -1,7 +1,96 @@
+/* Editor-specific styles for sidebar menu block */
 .editor-styles-wrapper .chuyennhanali-sidebar-menu-block {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 16px 0;
 }
 
-.editor-styles-wrapper .chuyennhanali-sidebar-menu-block p {
-  font-weight: 500;
+.editor-styles-wrapper .chuyennhanali-sidebar-menu-preview {
+  border: 2px dashed #cbd5e1;
+  border-radius: 8px;
+  overflow: hidden;
+  
+  .menu-title {
+    margin: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    border-radius: 6px 6px 0 0;
+  }
+  
+  .menu-list {
+    border: none;
+    border-radius: 0 0 6px 6px;
+  }
+  
+  .editor-notice {
+    background: #e0f2fe;
+    border-color: #0284c7;
+    color: #0c4a6e;
+  }
+}
+
+/* Inspector controls styling */
+.block-editor-block-inspector {
+  .components-panel__body-title {
+    font-weight: 600;
+  }
+  
+  .components-base-control__field {
+    margin-bottom: 16px;
+  }
+  
+  .components-text-control__input {
+    border-radius: 4px;
+  }
+  
+  .components-toggle-control {
+    .components-form-toggle {
+      margin-right: 12px;
+    }
+  }
+}
+
+/* Menu item editor styling */
+.sidebar-menu-item-editor {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: #fafafa;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    
+    strong {
+      font-weight: 600;
+      color: #1e293b;
+    }
+  }
+  
+  .item-controls {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    
+    .components-button {
+      font-size: 12px;
+      height: 32px;
+      
+      &.is-destructive {
+        border-color: #dc2626;
+        color: #dc2626;
+        
+        &:hover {
+          background-color: #dc2626;
+          color: white;
+        }
+      }
+    }
+  }
 }

@@ -3,7 +3,7 @@
   "apiVersion": 3,
   "name": "chuyennhanali/example-block",
   "title": "NaLi Example Block",
-  "category": "NaLi",
+  "category": "nali-blocks",
   "icon": "smiley",
   "description": "Ví dụ block động của NaLi.",
   "textdomain": "nali-custom-block",

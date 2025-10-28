@@ -1,12 +1,236 @@
+/* Main sidebar menu container */
 .chuyennhanali-sidebar-menu-block {
-  padding: 20px;
-  border: 2px solid #0073aa;
-  border-radius: 4px;
-  background-color: #f0f6fc;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  min-width: 250px;
+  max-width: 300px;
 }
 
-.chuyennhanali-sidebar-menu-block p {
+/* Menu title */
+.chuyennhanali-menu-title {
   margin: 0;
-  font-size: 16px;
-  color: #333;
+  padding: 20px 20px 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+  border-bottom: 1px solid #f1f5f9;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: -webkit-linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+}
+
+/* Navigation container */
+.chuyennhanali-menu-nav {
+  width: 100%;
+}
+
+/* Menu list */
+.chuyennhanali-menu-list {
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+}
+
+/* Menu items */
+.chuyennhanali-menu-item {
+  margin: 0;
+  position: relative;
+  
+  &:hover .chuyennhanali-menu-link {
+    background-color: #f8fafc;
+    color: #3b82f6;
+    transform: translateX(2px);
+  }
+  
+  &.is-active .chuyennhanali-menu-link {
+    background-color: #3b82f6;
+    color: #ffffff;
+    font-weight: 600;
+    border-right: 4px solid #1d4ed8;
+    
+    &:hover {
+      background-color: #2563eb;
+      color: #ffffff;
+      transform: none;
+    }
+    
+    .active-indicator {
+      display: block;
+    }
+  }
+}
+
+/* Menu links */
+.chuyennhanali-menu-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  color: #64748b;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  font-size: 14px;
+  line-height: 1.4;
+  border: none;
+  background: transparent;
+  width: 100%;
+  
+  &:hover {
+    text-decoration: none;
+  }
+  
+  &:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: -2px;
+    background-color: #f8fafc;
+  }
+}
+
+/* Menu text */
+.menu-text {
+  flex: 1;
+  text-align: left;
+}
+
+/* Active indicator */
+.active-indicator {
+  display: none;
+  width: 6px;
+  height: 6px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  margin-left: 8px;
+}
+
+/* Empty state */
+.chuyennhanali-menu-empty {
+  padding: 20px;
+  text-align: center;
+  color: #94a3b8;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Editor preview styles */
+.chuyennhanali-sidebar-menu-preview {
+  .menu-title {
+    margin: 0 0 16px 0;
+    padding: 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    border-radius: 8px 8px 0 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .menu-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+  }
+  
+  .menu-item {
+    margin: 0;
+    border-bottom: 1px solid #f1f5f9;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    &.active {
+      background-color: #3b82f6;
+      
+      .menu-link {
+        color: #ffffff;
+        font-weight: 600;
+      }
+    }
+  }
+  
+  .menu-link {
+    display: block;
+    padding: 12px 16px;
+    color: #64748b;
+    text-decoration: none;
+    font-size: 14px;
+    
+    &:hover {
+      background-color: #f8fafc;
+      text-decoration: none;
+    }
+  }
+  
+  .editor-notice {
+    margin: 16px 0 0 0;
+    padding: 12px;
+    background: #fef3c7;
+    border: 1px solid #f59e0b;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #92400e;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .chuyennhanali-sidebar-menu-block {
+    max-width: 100%;
+    min-width: auto;
+  }
+  
+  .chuyennhanali-menu-title {
+    padding: 16px;
+    font-size: 16px;
+  }
+  
+  .chuyennhanali-menu-link {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .chuyennhanali-sidebar-menu-block {
+    background: #1e293b;
+    border-color: #334155;
+  }
+  
+  .chuyennhanali-menu-title {
+    color: #ffffff;
+    border-bottom-color: #334155;
+  }
+  
+  .chuyennhanali-menu-link {
+    color: #cbd5e1;
+    
+    &:hover {
+      background-color: #334155;
+      color: #ffffff;
+    }
+    
+    &:focus {
+      background-color: #334155;
+    }
+  }
+  
+  .chuyennhanali-menu-item.is-active .chuyennhanali-menu-link {
+    background-color: #3b82f6;
+    color: #ffffff;
+    
+    &:hover {
+      background-color: #2563eb;
+    }
+  }
+  
+  .chuyennhanali-menu-empty {
+    color: #64748b;
+  }
 }

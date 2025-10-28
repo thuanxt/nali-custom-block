@@ -3,8 +3,8 @@
   "apiVersion": 3,
   "name": "chuyennhanali/sidebar-menu-block",
   "title": "NaLi Side Bar Menu Block",
-  "category": "NaLi",
-  "icon": "smiley",
+  "category": "nali-blocks",
+  "icon": "menu-alt3",
   "description": "NaLi Side Bar Menu Block",
   "textdomain": "nali-custom-block",
   "editorScript": "file:./index.js",
@@ -16,9 +16,13 @@
     "html": false
   },
   "attributes": {
-    "message": {
+    "menuItems": {
+      "type": "array",
+      "default": []
+    },
+    "menuTitle": {
       "type": "string",
-      "default": "Xin chào từ NaLi Side Bar Menu Block!"
+      "default": "Menu Dashboard"
     }
   }
 }

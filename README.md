@@ -6,6 +6,17 @@ Tập hợp các Gutenberg custom blocks được phát triển bởi NaLi.
 
 **NaLi Custom Blocks** là một WordPress plugin cung cấp các custom blocks cho Gutenberg editor. Plugin được phát triển theo các tiêu chuẩn hiện đại của WordPress và sử dụng block API version 3.
 
+### Blocks hiện có
+
+1. **NaLi Side Bar Menu Block** - Tạo menu sidebar dạng dashboard với khả năng cấu hình linh hoạt
+   - Cấu hình tên menu tùy ý
+   - Hỗ trợ link WordPress page, post hoặc URL bất kỳ  
+   - Tự động highlight menu đang được chọn
+   - Responsive design và hỗ trợ dark theme
+   - [📖 Hướng dẫn chi tiết](./SIDEBAR-MENU-GUIDE.md)
+
+2. **Example Block** - Block mẫu để tham khảo cấu trúc
+
 ### Thông tin kỹ thuật
 
 - **Block namespace:** `chuyennhanali`
