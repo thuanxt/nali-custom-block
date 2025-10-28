@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "chuyennhanali/sidebar-menu-block",
+  "title": "NaLi Side Bar Menu Block",
+  "category": "NaLi",
+  "icon": "smiley",
+  "description": "NaLi Side Bar Menu Block",
+  "textdomain": "nali-custom-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "message": {
+      "type": "string",
+      "default": "Xin chào từ NaLi Side Bar Menu Block!"
+    }
+  }
+}
