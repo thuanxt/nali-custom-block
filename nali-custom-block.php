@@ -66,5 +66,24 @@ function chuyennhanali_register_blocks()
     }
 }
 
+/**
+ * Register custom block category for NaLi blocks
+ */
+function chuyennhanali_block_categories($categories, $post) {
+    return array_merge(
+        array(
+            array(
+                'slug'  => 'nali-blocks',
+                'title' => __('NaLi Blocks', 'nali-custom-block'),
+                'icon'  => 'dashicons-admin-customizer',
+            ),
+        ),
+        $categories
+    );
+}
+
 // Hook into init to register blocks.
 add_action('init', 'chuyennhanali_register_blocks');
+
+// Register custom block category
+add_filter('block_categories_all', 'chuyennhanali_block_categories', 10, 2);
