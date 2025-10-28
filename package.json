@@ -1,0 +1,21 @@
+{
+  "name": "nali-custom-block",
+  "version": "0.1.0",
+  "description": "Tập hợp các Gutenberg custom blocks được phát triển bởi NaLi",
+  "private": true,
+  "author": "NaLi",
+  "license": "GPL-2.0-or-later",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "lint": "wp-scripts lint-js",
+    "format": "wp-scripts format",
+    "postinstall": "wp-scripts -v || echo 'wp-scripts available'"
+  },
+  "devDependencies": {
+    "@wordpress/eslint-plugin": "^17.0.0",
+    "@wordpress/scripts": "^26.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0"
+  }
+}
