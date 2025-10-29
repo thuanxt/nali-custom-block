@@ -5,15 +5,24 @@
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  min-width: 250px;
-  max-width: 300px;
+  width: 100%;
+  max-width: 100%;
+  font-size: 14px;
+  line-height: 1.5;
+  
+  // CSS Variables for dynamic colors
+  --menu-text-color: #64748b;
+  --menu-active-bg-color: #3b82f6;
+  --menu-active-text-color: #ffffff;
+  --menu-hover-bg-color: #f8fafc;
+  --menu-hover-text-color: #3b82f6;
 }
 
 /* Menu title */
 .chuyennhanali-menu-title {
   margin: 0;
   padding: 20px 20px 16px;
-  font-size: 18px;
+  font-size: 1.2em;
   font-weight: 600;
   color: #1e293b;
   border-bottom: 1px solid #f1f5f9;
@@ -40,21 +49,23 @@
   position: relative;
   
   &:hover .chuyennhanali-menu-link {
-    background-color: #f8fafc;
-    color: #3b82f6;
+    background-color: var(--menu-hover-bg-color) !important;
+    color: var(--menu-hover-text-color) !important;
     transform: translateX(2px);
   }
   
   &.is-active .chuyennhanali-menu-link {
-    background-color: #3b82f6;
-    color: #ffffff;
+    background-color: var(--menu-active-bg-color) !important;
+    color: var(--menu-active-text-color) !important;
     font-weight: 600;
-    border-right: 4px solid #1d4ed8;
+    border-right: 4px solid var(--menu-active-bg-color);
+    filter: brightness(0.9);
     
     &:hover {
-      background-color: #2563eb;
-      color: #ffffff;
+      background-color: var(--menu-active-bg-color) !important;
+      color: var(--menu-active-text-color) !important;
       transform: none;
+      filter: brightness(0.85);
     }
     
     .active-indicator {
@@ -69,11 +80,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 20px;
-  color: #64748b;
+  color: var(--menu-text-color);
   text-decoration: none;
   transition: all 0.2s ease-in-out;
-  font-size: 14px;
-  line-height: 1.4;
   border: none;
   background: transparent;
   width: 100%;
@@ -83,9 +92,9 @@
   }
   
   &:focus {
-    outline: 2px solid #3b82f6;
+    outline: 2px solid var(--menu-active-bg-color);
     outline-offset: -2px;
-    background-color: #f8fafc;
+    background-color: var(--menu-hover-bg-color);
   }
 }
 
@@ -100,7 +109,7 @@
   display: none;
   width: 6px;
   height: 6px;
-  background-color: #ffffff;
+  background-color: var(--menu-active-text-color);
   border-radius: 50%;
   margin-left: 8px;
 }
@@ -117,12 +126,11 @@
 /* Editor preview styles */
 .chuyennhanali-sidebar-menu-preview {
   .menu-title {
-    margin: 0 0 16px 0;
+    margin: 0 0 0 0;
     padding: 16px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #ffffff;
     border-radius: 8px 8px 0 0;
-    font-size: 16px;
     font-weight: 600;
   }
   
@@ -144,27 +152,22 @@
       border-bottom: none;
     }
     
-    &.active {
-      background-color: #3b82f6;
-      
-      .menu-link {
-        color: #ffffff;
-        font-weight: 600;
-      }
+    &.active .menu-link {
+      font-weight: 600;
+    }
+    
+    &:hover .menu-link {
+      background-color: var(--menu-hover-bg-color) !important;
+      color: var(--menu-hover-text-color) !important;
+      text-decoration: none;
     }
   }
   
   .menu-link {
     display: block;
     padding: 12px 16px;
-    color: #64748b;
     text-decoration: none;
-    font-size: 14px;
-    
-    &:hover {
-      background-color: #f8fafc;
-      text-decoration: none;
-    }
+    transition: all 0.2s ease;
   }
   
   .editor-notice {
@@ -181,18 +184,15 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .chuyennhanali-sidebar-menu-block {
-    max-width: 100%;
-    min-width: auto;
+    border-radius: 6px;
   }
   
   .chuyennhanali-menu-title {
     padding: 16px;
-    font-size: 16px;
   }
   
   .chuyennhanali-menu-link {
     padding: 14px 16px;
-    font-size: 15px;
   }
 }
 
