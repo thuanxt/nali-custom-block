@@ -1,5 +1,5 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import { useBlockProps, InspectorControls, PanelColorSettings } from '@wordpress/block-editor';
 import { 
   PanelBody, 
   TextControl, 
@@ -12,7 +12,19 @@ import {
 import { useState } from '@wordpress/element';
 
 export default function Edit({ attributes, setAttributes }) {
-  const { menuItems = [], menuTitle } = attributes;
+  const { 
+    menuItems = [], 
+    menuTitle,
+    showTitle,
+    backgroundColor,
+    textColor,
+    activeBackgroundColor,
+    activeTextColor,
+    titleBackgroundColor,
+    titleTextColor,
+    hoverBackgroundColor,
+    hoverTextColor
+  } = attributes;
   const [expandedItem, setExpandedItem] = useState(null);
 
   // Initialize with default menu items if empty
@@ -40,6 +52,14 @@ export default function Edit({ attributes, setAttributes }) {
 
   const blockProps = useBlockProps({
     className: 'chuyennhanali-sidebar-menu-block',
+    style: {
+      '--menu-bg-color': backgroundColor,
+      '--menu-text-color': textColor,
+      '--menu-active-bg-color': activeBackgroundColor,
+      '--menu-active-text-color': activeTextColor,
+      '--menu-hover-bg-color': hoverBackgroundColor,
+      '--menu-hover-text-color': hoverTextColor,
+    }
   });
 
   const updateMenuItem = (index, field, value) => {
@@ -86,7 +106,71 @@ export default function Edit({ attributes, setAttributes }) {
             onChange={(value) => setAttributes({ menuTitle: value })}
             placeholder={__('Nhập tiêu đề menu...', 'nali-custom-block')}
           />
+          <ToggleControl
+            label={__('Hiển thị tiêu đề', 'nali-custom-block')}
+            checked={showTitle}
+            onChange={(value) => setAttributes({ showTitle: value })}
+            help={__('Bật/tắt hiển thị tiêu đề menu', 'nali-custom-block')}
+          />
         </PanelBody>
+
+        <PanelColorSettings
+          title={__('Màu sắc Menu', 'nali-custom-block')}
+          colorSettings={[
+            {
+              value: backgroundColor,
+              onChange: (value) => setAttributes({ backgroundColor: value || '#ffffff' }),
+              label: __('Màu nền', 'nali-custom-block'),
+            },
+            {
+              value: textColor,
+              onChange: (value) => setAttributes({ textColor: value || '#64748b' }),
+              label: __('Màu chữ', 'nali-custom-block'),
+            },
+            {
+              value: hoverBackgroundColor,
+              onChange: (value) => setAttributes({ hoverBackgroundColor: value || '#f8fafc' }),
+              label: __('Màu nền khi hover', 'nali-custom-block'),
+            },
+            {
+              value: hoverTextColor,
+              onChange: (value) => setAttributes({ hoverTextColor: value || '#3b82f6' }),
+              label: __('Màu chữ khi hover', 'nali-custom-block'),
+            },
+          ]}
+        />
+
+        <PanelColorSettings
+          title={__('Màu sắc Menu Active', 'nali-custom-block')}
+          colorSettings={[
+            {
+              value: activeBackgroundColor,
+              onChange: (value) => setAttributes({ activeBackgroundColor: value || '#3b82f6' }),
+              label: __('Màu nền Active', 'nali-custom-block'),
+            },
+            {
+              value: activeTextColor,
+              onChange: (value) => setAttributes({ activeTextColor: value || '#ffffff' }),
+              label: __('Màu chữ Active', 'nali-custom-block'),
+            },
+          ]}
+        />
+
+        <PanelColorSettings
+          title={__('Màu sắc Tiêu đề', 'nali-custom-block')}
+          colorSettings={[
+            {
+              value: titleBackgroundColor,
+              onChange: (value) => setAttributes({ titleBackgroundColor: value }),
+              label: __('Màu nền Tiêu đề', 'nali-custom-block'),
+            },
+            {
+              value: titleTextColor,
+              onChange: (value) => setAttributes({ titleTextColor: value || '#ffffff' }),
+              label: __('Màu chữ Tiêu đề', 'nali-custom-block'),
+            },
+          ]}
+        />
 
         <PanelBody title={__('Danh sách Menu', 'nali-custom-block')} initialOpen={true}>
           <VStack spacing={3}>
@@ -126,7 +210,7 @@ export default function Edit({ attributes, setAttributes }) {
                       label={__('Menu đang được chọn', 'nali-custom-block')}
                       checked={item.isActive}
                       onChange={(value) => updateMenuItem(index, 'isActive', value)}
-                      help={__('Menu này sẽ được highlight khi hiển thị', 'nali-custom-block')}
+                      help={__('Đặt làm menu active mặc định. Sẽ bị vô hiệu khi các trang khác đang được truy cập', 'nali-custom-block')}
                     />
                     
                     <Flex gap={2}>
@@ -169,19 +253,36 @@ export default function Edit({ attributes, setAttributes }) {
 
       <div {...blockProps}>
         <div className="chuyennhanali-sidebar-menu-preview">
-          <h4 className="menu-title">{menuTitle}</h4>
-          <ul className="menu-list">
+          {showTitle && (
+            <h4 
+              className="menu-title"
+              style={{
+                background: titleBackgroundColor || 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                color: titleTextColor,
+              }}
+            >
+              {menuTitle}
+            </h4>
+          )}
+          <ul className="menu-list" style={{ backgroundColor: backgroundColor }}>
             {menuItems.map((item, index) => (
-              <li key={index} className={`menu-item ${item.isActive ? 'active' : ''}`}>
-                <a href={item.url} className="menu-link">
+              <li 
+                key={index} 
+                className={`menu-item ${item.isActive ? 'active' : ''}`}
+              >
+                <a 
+                  href={item.url} 
+                  className="menu-link"
+                  style={{
+                    color: item.isActive ? activeTextColor : textColor,
+                    backgroundColor: item.isActive ? activeBackgroundColor : 'transparent',
+                  }}
+                >
                   {item.label}
                 </a>
               </li>
             ))}
           </ul>
-          <p className="editor-notice">
-            <em>🎨 Đây là preview trong editor. Xem trang thực để thấy kết quả cuối cùng.</em>
-          </p>
         </div>
       </div>
     </>
