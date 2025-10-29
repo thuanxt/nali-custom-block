@@ -1,0 +1,296 @@
+.chuyennhanali-woo-orders {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+/* Scrollable wrapper for non-paginated lists */
+.chuyennhanali-woo-orders .orders-table-wrapper {
+  max-height: 600px;
+  overflow-y: auto;
+  overflow-x: auto;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.chuyennhanali-woo-orders .orders-table-wrapper::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.chuyennhanali-woo-orders .orders-table-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.chuyennhanali-woo-orders .orders-table-wrapper::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.chuyennhanali-woo-orders .orders-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.chuyennhanali-woo-orders .woocommerce-orders-table {
+  width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.chuyennhanali-woo-orders .woocommerce-orders-table th,
+.chuyennhanali-woo-orders .woocommerce-orders-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.chuyennhanali-woo-orders .woocommerce-orders-table th {
+  font-weight: 600;
+  background-color: #f8f9fa;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+}
+
+.chuyennhanali-woo-orders .woocommerce-orders-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.chuyennhanali-woo-orders .woocommerce-orders-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Order Status Badge */
+.chuyennhanali-woo-orders .order-status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  text-transform: capitalize;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.chuyennhanali-woo-orders .order-status-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.chuyennhanali-woo-orders .woocommerce-orders-table a {
+  color: #0073aa;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.chuyennhanali-woo-orders .woocommerce-orders-table a:hover {
+  color: #005177;
+  text-decoration: underline;
+}
+
+.chuyennhanali-woo-orders .woocommerce-button,
+.chuyennhanali-woo-orders .button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #0073aa;
+  color: #fff !important;
+  text-decoration: none !important;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.chuyennhanali-woo-orders .woocommerce-button:hover,
+.chuyennhanali-woo-orders .button:hover {
+  background-color: #005177;
+}
+
+/* Action button variations */
+.chuyennhanali-woo-orders .button.pay {
+  background-color: #10b981;
+}
+
+.chuyennhanali-woo-orders .button.pay:hover {
+  background-color: #059669;
+}
+
+.chuyennhanali-woo-orders .button.cancel {
+  background-color: #ef4444;
+}
+
+.chuyennhanali-woo-orders .button.cancel:hover {
+  background-color: #dc2626;
+}
+
+.chuyennhanali-woo-orders .button.downloads {
+  background-color: #8b5cf6;
+}
+
+.chuyennhanali-woo-orders .button.downloads:hover {
+  background-color: #7c3aed;
+}
+
+.chuyennhanali-woo-orders .order-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.chuyennhanali-woo-orders .woocommerce-info,
+.chuyennhanali-woo-orders .woocommerce-Message {
+  padding: 15px;
+  background-color: #f0f6fc;
+  border-left: 4px solid #0073aa;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.chuyennhanali-woo-orders .woocommerce-info p,
+.chuyennhanali-woo-orders .woocommerce-Message p {
+  margin: 0;
+  color: #333;
+}
+
+/* Pagination styles */
+.chuyennhanali-woo-orders .woocommerce-pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.chuyennhanali-woo-orders .woocommerce-pagination ul.page-numbers {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.chuyennhanali-woo-orders .woocommerce-pagination ul.page-numbers li {
+  display: inline-block;
+  margin: 0;
+}
+
+.chuyennhanali-woo-orders .woocommerce-pagination .page-numbers {
+  display: inline-block;
+  padding: 8px 12px;
+  min-width: 40px;
+  text-align: center;
+  background-color: #f8f9fa;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.chuyennhanali-woo-orders .woocommerce-pagination .page-numbers:hover {
+  color: #0073aa;
+}
+
+.chuyennhanali-woo-orders .woocommerce-pagination .page-numbers.current {
+  background-color: #0073aa;
+  color: #fff;
+  border-color: #0073aa;
+  cursor: default;
+}
+
+.chuyennhanali-woo-orders .woocommerce-pagination .prev.page-numbers,
+.chuyennhanali-woo-orders .woocommerce-pagination .next.page-numbers {
+  font-weight: 600;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .chuyennhanali-woo-orders .woocommerce-orders-table {
+    font-size: 14px;
+  }
+
+  .chuyennhanali-woo-orders .woocommerce-orders-table th,
+  .chuyennhanali-woo-orders .woocommerce-orders-table td {
+    padding: 8px 10px;
+  }
+
+  .chuyennhanali-woo-orders .woocommerce-orders-table thead {
+    display: none;
+  }
+
+  .chuyennhanali-woo-orders .woocommerce-orders-table tbody tr {
+    display: block;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .chuyennhanali-woo-orders .woocommerce-orders-table tbody td {
+    display: block;
+    text-align: right;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .chuyennhanali-woo-orders .woocommerce-orders-table tbody td:last-child {
+    border-bottom: none;
+  }
+
+  .chuyennhanali-woo-orders .woocommerce-orders-table tbody td::before {
+    content: attr(data-title);
+    float: left;
+    font-weight: 600;
+    color: #333;
+  }
+}
+
+.woo-orders-preview {
+  padding: 20px;
+  background-color: #f0f6fc;
+  border: 2px dashed #0073aa;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.woo-orders-preview h3 {
+  margin-top: 0;
+  color: #0073aa;
+}
+
+.woo-orders-preview p {
+  margin: 10px 0;
+  color: #333;
+}
+
+/* Status Colors Preview in Editor */
+.woo-orders-preview .status-colors-preview {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+  text-align: left;
+}
+
+.woo-orders-preview .status-colors-preview strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #0073aa;
+}
+
+/* Color Picker Control Spacing */
+.woo-status-color-control {
+  margin-bottom: 20px;
+}
+
+.woo-status-color-control .components-base-control__label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}

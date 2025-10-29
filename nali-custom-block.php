@@ -87,3 +87,55 @@ add_action('init', 'chuyennhanali_register_blocks');
 
 // Register custom block category
 add_filter('block_categories_all', 'chuyennhanali_block_categories', 10, 2);
+
+/**
+ * Add custom rewrite rule for order details page
+ */
+function chuyennhanali_add_order_details_endpoint() {
+    add_rewrite_endpoint('nali-order', EP_ROOT | EP_PAGES);
+}
+add_action('init', 'chuyennhanali_add_order_details_endpoint');
+
+/**
+ * Flush rewrite rules on plugin activation
+ */
+function chuyennhanali_activate_plugin() {
+    chuyennhanali_add_order_details_endpoint();
+    flush_rewrite_rules();
+}
+register_activation_hook(__FILE__, 'chuyennhanali_activate_plugin');
+
+/**
+ * Flush rewrite rules on plugin deactivation
+ */
+function chuyennhanali_deactivate_plugin() {
+    flush_rewrite_rules();
+}
+register_deactivation_hook(__FILE__, 'chuyennhanali_deactivate_plugin');
+
+/**
+ * Handle order details page display
+ */
+function chuyennhanali_handle_order_details() {
+    $order_id = get_query_var('nali-order');
+    
+    if ($order_id) {
+        // Load order details template
+        $template = NALI_CUSTOM_BLOCK_PATH . 'templates/order-details.php';
+        
+        if (file_exists($template)) {
+            include $template;
+            exit;
+        }
+    }
+}
+add_action('template_redirect', 'chuyennhanali_handle_order_details');
+
+/**
+ * Register query var for order details
+ */
+function chuyennhanali_query_vars($vars) {
+    $vars[] = 'nali-order';
+    return $vars;
+}
+add_filter('query_vars', 'chuyennhanali_query_vars');
