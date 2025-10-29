@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "chuyennhanali/woo-orders",
+  "title": "NaLi WooCommerce Orders",
+  "category": "nali-blocks",
+  "icon": "list-view",
+  "description": "Hiển thị danh sách đơn hàng WooCommerce của người dùng.",
+  "textdomain": "nali-custom-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "ordersPerPage": {
+      "type": "number",
+      "default": 10
+    },
+    "showPagination": {
+      "type": "boolean",
+      "default": true
+    },
+    "statusColors": {
+      "type": "object",
+      "default": {
+        "pending": "#f59e0b",
+        "processing": "#3b82f6",
+        "on-hold": "#6b7280",
+        "completed": "#10b981",
+        "cancelled": "#ef4444",
+        "refunded": "#8b5cf6",
+        "failed": "#dc2626"
+      }
+    }
+  }
+}
