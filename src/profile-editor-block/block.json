@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "chuyennhanali/profile-editor-block",
+  "title": "NaLi Profile Editor Block",
+  "category": "nali-blocks",
+  "icon": "admin-users",
+  "description": "Block cho phép người dùng chỉnh sửa thông tin cá nhân.",
+  "textdomain": "nali-custom-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js",
+  "supports": {
+    "html": false
+  },
+  "attributes": {}
+}
