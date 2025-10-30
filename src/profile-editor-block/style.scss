@@ -1,0 +1,449 @@
+.chuyennhanali-profile-editor-block,
+.wp-block-chuyennhanali-profile-editor-block {
+	max-width: 100%;
+	overflow-x: hidden;
+
+	.nali-profile-editor-form {
+		max-width: 100%;
+		width: 100%;
+		margin: 0;
+		padding: 2rem 3rem 2rem 2rem;
+		background: #fff;
+		border-radius: 8px;
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+		box-sizing: border-box;
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+			Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+		@media (max-width: 768px) {
+			padding: 1.5rem;
+		}
+
+		h3 {
+			border-bottom: 2px solid #f0f0f0;
+			padding-bottom: 1rem;
+			margin-top: 0;
+			margin-bottom: 1.5rem;
+			font-size: 1.5rem;
+			color: #2c3e50;
+		}
+
+		// Personal info section in 2 columns
+		> p {
+			margin-bottom: 1.5rem;
+		}
+
+		// Create a grid for personal info fields
+		.nali-personal-info {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.5rem;
+			margin-bottom: 2rem;
+
+			@media (max-width: 768px) {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		label {
+			display: block;
+			font-weight: 600;
+			margin-bottom: 0.5rem;
+			color: #555;
+		}
+
+		.regular-text,
+		input[type="email"],
+		input[type="text"] {
+			width: 100%;
+			padding: 0.75rem;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			box-sizing: border-box;
+			transition: border-color 0.3s;
+
+			&:focus {
+				border-color: #0073aa;
+				outline: none;
+				box-shadow: 0 0 0 1px rgba(0, 115, 170, 0.5);
+			}
+		}
+
+		.nali-profile-section {
+			margin-top: 2rem;
+			padding: 1.5rem;
+			background: #f9f9f9;
+			border-radius: 8px;
+			border: 1px solid #e5e5e5;
+
+			h3 {
+				margin-top: 0;
+				border-bottom: 2px solid #ddd;
+			}
+		}
+
+		.nali-profile-fields {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1.5rem;
+
+			@media (max-width: 1024px) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			@media (max-width: 768px) {
+				grid-template-columns: 1fr;
+			}
+
+			// Address fields should span 2 columns for better readability
+			.form-row {
+				p {
+					margin: 0;
+				}
+			}
+
+			// Make address line 1 and 2 span full width
+			[id$="_address_1_field"],
+			[id$="_address_2_field"],
+			p.full-width {
+				grid-column: 1 / -1;
+			}
+
+			p {
+				margin: 0;
+
+				select,
+				input[type="text"],
+				input[type="tel"],
+				input[type="email"] {
+					width: 100%;
+				}
+			}
+
+			.required {
+				color: #d32f2f;
+			}
+		}
+
+		.nali-same-as-billing-checkbox {
+			margin-bottom: 1.5rem;
+
+			.checkbox-label {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				font-weight: 500;
+				cursor: pointer;
+
+				input[type="checkbox"] {
+					width: auto;
+					cursor: pointer;
+				}
+			}
+		}
+
+		.nali-shipping-fields {
+			transition: all 0.3s ease-in-out;
+		}
+
+		.nali-submit-wrapper {
+			margin-top: 2rem;
+			padding-top: 2rem;
+			border-top: 2px solid #f0f0f0;
+			text-align: center;
+		}
+
+		.button-primary {
+			background-color: #0073aa;
+			border-color: #0073aa;
+			color: #fff;
+			padding: 1rem 3rem;
+			font-size: 1.1rem;
+			font-weight: 600;
+			border-radius: 6px;
+			cursor: pointer;
+			transition: all 0.3s;
+			height: auto;
+			line-height: normal;
+			border: none;
+			box-shadow: 0 2px 8px rgba(0, 115, 170, 0.3);
+
+			&:hover {
+				background-color: #005a87;
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(0, 115, 170, 0.4);
+			}
+
+			&:active {
+				transform: translateY(0);
+			}
+		}
+
+		.notice-success {
+			border-left: 4px solid #4caf50;
+			background: #f1f8f1;
+			padding: 1rem 1.5rem;
+			margin-bottom: 1.5rem;
+			border-radius: 4px;
+		}
+	}
+
+	// Style shipping section to match billing section
+	.nali-shipping-section {
+		.nali-profile-fields {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1.5rem;
+
+			@media (max-width: 1024px) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			@media (max-width: 768px) {
+				grid-template-columns: 1fr;
+			}
+
+			p.full-width {
+				grid-column: 1 / -1;
+			}
+		}
+	}
+
+	// Ensure shipping fields use grid layout
+	.nali-shipping-fields {
+		display: grid !important;
+		grid-template-columns: repeat(3, 1fr) !important;
+		gap: 1.5rem;
+
+		@media (max-width: 1024px) {
+			grid-template-columns: repeat(2, 1fr) !important;
+		}
+
+		@media (max-width: 768px) {
+			grid-template-columns: 1fr !important;
+		}
+
+		p.full-width,
+		[id$="_address_1"] {
+			grid-column: 1 / -1;
+		}
+
+		// Hidden state
+		&.hidden {
+			display: none !important;
+		}
+	}
+
+	// WooCommerce form field overrides
+	.form-row {
+		padding: 0;
+		margin-bottom: 0;
+
+		p {
+			margin-bottom: 0;
+		}
+
+		label {
+			display: block;
+			font-weight: 600;
+			margin-bottom: 0.5rem;
+			color: #555;
+		}
+
+		.input-text,
+		select {
+			width: 100%;
+			padding: 0.75rem;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			box-sizing: border-box;
+			transition: border-color 0.3s;
+
+			&:focus {
+				border-color: #0073aa;
+				outline: none;
+				box-shadow: 0 0 0 1px rgba(0, 115, 170, 0.5);
+			}
+
+			&:disabled {
+				background-color: #f5f5f5;
+				cursor: not-allowed;
+			}
+		}
+	}
+
+	// Style for select dropdowns
+	select.regular-text {
+		appearance: none;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: right 0.75rem center;
+		padding-right: 2.5rem;
+
+		&:disabled {
+			opacity: 0.6;
+		}
+	}
+
+	// Style for readonly postcode field
+	input[readonly] {
+		background-color: #f8f9fa;
+		color: #6c757d;
+		cursor: not-allowed;
+		border-color: #e0e0e0;
+		font-family: 'Courier New', Courier, monospace;
+		font-weight: 600;
+		letter-spacing: 1px;
+
+		&:focus {
+			border-color: #e0e0e0;
+			box-shadow: none;
+		}
+	}
+
+	// Special styling for postcode labels
+	label[for$="_postcode"] {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+
+		&::after {
+			content: "📮";
+			font-size: 1rem;
+		}
+	}
+}
+
+// Success message styling with animation - OUTSIDE the main block
+.nali-success-message {
+	background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+	color: white;
+	padding: 1.25rem 1.75rem;
+	margin-bottom: 1.5rem;
+	border-radius: 10px;
+	border: 2px solid rgba(255, 255, 255, 0.4);
+	box-shadow: 
+		0 10px 30px rgba(76, 175, 80, 0.6),
+		0 0 0 1px rgba(255, 255, 255, 0.3) inset,
+		0 5px 15px rgba(0, 0, 0, 0.2);
+	animation: slideInDown 0.5s ease-out, fadeOut 0.5s ease-in 7.5s forwards;
+	display: flex;
+	align-items: center;
+	font-weight: 600;
+	position: relative;
+	overflow: hidden;
+	backdrop-filter: blur(10px);
+
+	// Animated gradient background
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(
+			45deg,
+			rgba(255, 255, 255, 0.1) 0%,
+			transparent 50%,
+			rgba(255, 255, 255, 0.1) 100%
+		);
+		z-index: 0;
+	}
+
+	// Shine effect
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			90deg,
+			transparent,
+			rgba(255, 255, 255, 0.4),
+			transparent
+		);
+		animation: shine 2s ease-in-out 0.5s;
+		z-index: 1;
+	}
+
+	p {
+		margin: 0;
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		font-size: 1.05rem;
+		position: relative;
+		z-index: 2;
+	}
+
+	.success-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 36px;
+		height: 36px;
+		background: white;
+		color: #4caf50;
+		border-radius: 50%;
+		font-size: 1.4rem;
+		font-weight: bold;
+		animation: scaleIn 0.6s ease-out 0.3s backwards, pulse 1.5s ease-in-out 0.9s;
+		box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+		position: relative;
+		z-index: 2;
+	}
+}
+
+// Animations for success message
+@keyframes slideInDown {
+		from {
+			opacity: 0;
+			transform: translateY(-20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes fadeOut {
+		from {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		to {
+			opacity: 0;
+			transform: translateY(-10px);
+			pointer-events: none;
+		}
+	}
+
+	@keyframes scaleIn {
+		from {
+			transform: scale(0);
+		}
+		to {
+			transform: scale(1);
+		}
+	}
+
+	@keyframes shine {
+		0% {
+			left: -100%;
+		}
+		100% {
+			left: 100%;
+		}
+	}
+
+	@keyframes pulse {
+		0%, 100% {
+			transform: scale(1);
+		}
+		50% {
+			transform: scale(1.1);
+		}
+	}
